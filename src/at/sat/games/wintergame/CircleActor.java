@@ -14,10 +14,14 @@ public class CircleActor {
 
     // float -> Datentyp, der Bruchzahlen/Kommazahlen speichern kann
     public void update(GameContainer gc, int delta) {
-        this.x++;
+        this.y += 0.2;
+        if (this.y > 650) {
+            this.y = -10;
+        }
     }
 
     public void render(Graphics graphics) {
         graphics.drawOval(this.x, this.y, 20, 20);
+        graphics.fillOval(this.x, this.y, 20, 20);
     }
 }
