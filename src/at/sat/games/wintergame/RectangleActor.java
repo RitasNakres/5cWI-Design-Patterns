@@ -2,6 +2,8 @@ package at.sat.games.wintergame;
 
 import org.newdawn.slick.GameContainer;
 import org.newdawn.slick.Graphics;
+import org.newdawn.slick.Image;
+import org.newdawn.slick.SlickException;
 
 public class RectangleActor {
     private float x, y;
@@ -22,8 +24,10 @@ public class RectangleActor {
         }
     }
 
-    public void render(Graphics graphics) {
+    public void render(Graphics graphics) throws SlickException {
         graphics.drawRect(this.x, this.y, 40, 20);
         graphics.fillRect(this.x, this.y, 40, 20);
+        Image img = new Image("testdata/Diana.png");
+        graphics.drawImage(img, 200, 200);
     }
 }
