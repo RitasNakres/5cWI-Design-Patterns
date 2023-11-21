@@ -6,8 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainGame extends BasicGame {
-    private List<RectangleActor> rectangles = new ArrayList<>();
-    private List<CircleActor> circles = new ArrayList<>();
+    private List<Actor> actors;
 
     public MainGame(String title) {
         super(title);
@@ -15,40 +14,38 @@ public class MainGame extends BasicGame {
 
 
     @Override
-    public void init(GameContainer gameContainer) throws SlickException {
+    public void init(GameContainer gameContainer) {
 // baut spiel auf,generiert Objekte, wird einmal aufgerufen am Beginn des Spieles
-        RectangleActor ra1 = new RectangleActor(100, 150);
-        RectangleActor ra2 = new RectangleActor(150, 200);
-        RectangleActor ra3 = new RectangleActor(250, 200);
-        CircleActor ca1 = new CircleActor(200, 250);
-        CircleActor ca2 = new CircleActor(275, 325);
-        rectangles.add(ra1);
-        rectangles.add(ra2);
-        rectangles.add(ra3);
-        circles.add(ca1);
-        circles.add(ca2);
+        this.actors = new ArrayList<>();
+        Movement mr1 = new MoveRight(0, 0, 0.3f);
+        Movement ml2 = new MoveLeft(0, 20, 0.1f);
+        Movement mr3 = new MoveRight(0, 75, 0.175f);
+        Movement mrc1 = new MoveRight(50, 125, 0.223f);
+        Movement mrc2 = new MoveRight(85, 300, 0.278f);
+        Movement omr1 = new MoveRight(300, 400, 0.189f);
+        this.actors.add(new RectangleActor(mr1));
+        this.actors.add(new RectangleActor(ml2));
+        this.actors.add(new RectangleActor(mr3));
+        this.actors.add(new CircleActor(mrc1));
+        this.actors.add(new CircleActor(mrc2));
+        this.actors.add(new Olaf());
     }
 
     @Override
     public void update(GameContainer gc, int delta) throws SlickException {
 // wird laufend aufgerufen, int delta gibt die vergangene Zeit nach dem letzten Aufruf an
-        for (RectangleActor actor : rectangles) {
+        for (Actor actor : this.actors) {
             actor.update(gc, delta);
-        }
-
-        for (CircleActor circle : circles) {
-            circle.update(gc, delta);
         }
     }
 
     @Override
     public void render(GameContainer gc, Graphics graphics) throws SlickException {
 // wird nur dann aufgerufen, wenn es nötig ist, zeichnet
-        for (RectangleActor actor : rectangles) {
+
+        for (Actor actor :
+                this.actors) {
             actor.render(graphics);
-        }
-        for (CircleActor circle : circles) {
-            circle.render(graphics);
         }
     }
 

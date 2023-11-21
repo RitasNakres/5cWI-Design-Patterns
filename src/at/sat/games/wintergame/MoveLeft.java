@@ -1,9 +1,9 @@
 package at.sat.games.wintergame;
 
-public class MoveRight implements Movement {
+public class MoveLeft implements Movement {
     private float x, y, speed;
 
-    public MoveRight(float x, float y, float speed) {
+    public MoveLeft(float x, float y, float speed) {
         this.x = x;
         this.y = y;
         this.speed = speed;
@@ -11,7 +11,7 @@ public class MoveRight implements Movement {
 
 
     public void update(int delta) {
-        this.x += delta * speed;
+        this.x -= delta * speed;
     }
 
     public float getX() {
