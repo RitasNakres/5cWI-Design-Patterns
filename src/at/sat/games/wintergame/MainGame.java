@@ -1,5 +1,9 @@
 package at.sat.games.wintergame;
 
+import at.sat.patterns.actors.*;
+import at.sat.patterns.movement.MoveLeft;
+import at.sat.patterns.movement.MoveRight;
+import at.sat.patterns.movement.Movement;
 import org.newdawn.slick.*;
 
 import java.util.ArrayList;
@@ -7,6 +11,7 @@ import java.util.List;
 
 public class MainGame extends BasicGame {
     private List<Actor> actors;
+    private Player player;
 
     public MainGame(String title) {
         super(title);
@@ -17,6 +22,8 @@ public class MainGame extends BasicGame {
     public void init(GameContainer gameContainer) {
 // baut spiel auf,generiert Objekte, wird einmal aufgerufen am Beginn des Spieles
         this.actors = new ArrayList<>();
+        this.player = new Player();
+        this.actors.add(player);
         Movement mr1 = new MoveRight(0, 0, 0.3f);
         Movement ml2 = new MoveLeft(0, 20, 0.1f);
         Movement mr3 = new MoveRight(0, 75, 0.175f);
@@ -29,6 +36,7 @@ public class MainGame extends BasicGame {
         this.actors.add(new CircleActor(mrc1));
         this.actors.add(new CircleActor(mrc2));
         this.actors.add(new Olaf());
+        this.player.addCircleActor(mrc1);
     }
 
     @Override
