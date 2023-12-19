@@ -24,6 +24,13 @@ public class PetStore {
     }
 
     public void printAllAnimals() {
-        System.out.println(getAnimals());
+        for (Animal animal : this.animals
+        ) {
+            System.out.println(animal.getName());
+        }
+    }
+
+    public void getPersonsName() {
+    this.person.printName();
     }
 }

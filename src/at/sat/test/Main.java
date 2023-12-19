@@ -13,5 +13,6 @@ public class Main {
         ps.addAnimal(c);
         ps.addAnimal(c1);
         ps.printAllAnimals();
+        ps.getPersonsName();
     }
 }
