@@ -1,4 +1,4 @@
-package at.sat.test;
+package at.sat.test.Animals;
 
 public class Person {
     private String firstName;

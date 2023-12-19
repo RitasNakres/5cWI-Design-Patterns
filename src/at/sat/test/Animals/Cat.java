@@ -1,4 +1,4 @@
-package at.sat.test;
+package at.sat.test.Animals;
 
 public class Cat implements Animal {
     private String name;

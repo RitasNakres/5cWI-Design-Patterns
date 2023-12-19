@@ -1,4 +1,4 @@
-package at.sat.test;
+package at.sat.test.Animals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +31,6 @@ public class PetStore {
     }
 
     public void getPersonsName() {
-    this.person.printName();
+        this.person.printName();
     }
 }
